@@ -34,10 +34,10 @@ class location(models.Model):
 
 
 class Asset(models.Model):
-	rfid = models.CharField(max_length = 8, unique= True)
+	rfid = models.CharField(max_length = 10, unique= True,primary_key=True)
 	type = models.ForeignKey(Category, on_delete=models.SET_NULL, null= True)
 	name = models.CharField(max_length=200)
-	acquisition_date = models.DateField()
+	purchase_date = models.DateField()
 	warranty_expiry = models.DateField(null = True)
 	PURCHASED_CHOICES = [ 
 		("None","None"),

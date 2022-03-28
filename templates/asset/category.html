@@ -1,0 +1,8 @@
+{% load static %}
+
+{% for item in object_list %}
+		<tr>
+			<td scope="row"><a href="#">{{item.name}}</a></td>
+			<td>{{item.slug}}</td>			
+		</tr>
+		{% endfor %}

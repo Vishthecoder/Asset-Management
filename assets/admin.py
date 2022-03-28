@@ -5,6 +5,9 @@ from .models import Category, Asset, location, AssetMaintenance
 from django.contrib.admin import AdminSite
 
 admin.site.site_header = 'Asset Management'
+admin.site.site_title = 'Asset Management'
+admin.site.index_title = 'Asset Management'
+
 
 
 class CategoryAdmin(admin.ModelAdmin):

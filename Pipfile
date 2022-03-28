@@ -7,8 +7,13 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 pillow = "*"
+boto3 = "*"
+django-crispy-forms = "*"
+django-cors-headers = "*"
+requests = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.8"

@@ -13,6 +13,7 @@ from .forms import CategoryForm, LocationForm, AssetForm
 """
 	VIEWS
 """
+
 class AssetListView(ListView):
 	model = Asset
 	
@@ -52,7 +53,7 @@ def categoryFormView(request):
 		else:
 			messages.success(request,'Error saving form')
 		
-		return redirect('/list/')
+		return redirect('asset/list/')
 	
 	form = CategoryForm()
 	return render(request=request, template_name= 'asset/category-creation.html', context= {'form':form})
@@ -67,7 +68,7 @@ def locationFormView(request):
 		else:
 			messages.success(request,'Error saving form')
 		
-		return redirect('/list/')
+		return redirect('asset/list/')
 	
 	form = LocationForm()
 	return render(request=request, template_name= 'asset/location-creation.html', context= {'form':form})
@@ -81,7 +82,7 @@ def assetFormView(request):
 		else:
 			messages.success(request,'Error saving form')
 		
-		return redirect('/list/')
+		return redirect('asset/list/')
 	
 	form = AssetForm()
 	return render(request=request, template_name= 'asset/asset-creation.html', context= {'form':form})

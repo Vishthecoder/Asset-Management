@@ -11,6 +11,8 @@ boto3 = "*"
 django-crispy-forms = "*"
 django-cors-headers = "*"
 requests = "*"
+django-4-jet = "*"
+google-api-python-client = "==1.4.1"
 
 [dev-packages]
 autopep8 = "*"

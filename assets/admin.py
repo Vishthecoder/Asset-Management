@@ -19,6 +19,7 @@ class AssetAdmin(admin.ModelAdmin):
 	list_display = ('name','serial_no','rfid','type','state','location')
 	search_fields = ('name','serial_no','rfid')
 	list_filter = ['type','location']
+	search_help_text = "Model Admin"
 
 class AssetMaintenanceAdmin(admin.ModelAdmin):
 	list_display = ('maintenance_id','asset_id','maintenance_description','maintenance_date','performed_by','maintenance_cost')

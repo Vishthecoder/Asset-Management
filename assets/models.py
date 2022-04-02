@@ -34,7 +34,7 @@ class location(models.Model):
 
 
 class Asset(models.Model):
-	rfid = models.CharField(max_length = 10, unique= True,primary_key=True)
+	rfid = models.CharField(max_length = 11, unique= True,primary_key=True)
 	type = models.ForeignKey(Category, on_delete=models.SET_NULL, null= True)
 	name = models.CharField(max_length=200)
 	purchase_date = models.DateField()

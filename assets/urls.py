@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import AssetDetailView, AssetListView, categoryFormView, CategoryListView, locationFormView, assetFormView
+from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [

@@ -9,7 +9,7 @@ def dashboard(request):
 	context = {
 		"welcome":"welcome to your dashboard"
 	}
-	return render(request, 'usersapp/dashboard.html',context=context)
+	return render(request, 'asset/index.html',context=context)
 
 def register(request):
 	if request.method == 'POST':
@@ -42,4 +42,4 @@ def edit(request):
 		'form':user_form,
 		}
 
-		return render(request,'usersapp/edit.html',context = context)
+		return render(request,'asset/profile.html',context = context)

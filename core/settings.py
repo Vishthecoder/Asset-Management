@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w^$4p46g7p)9qkgh^ky913fcn!36jpgf8a93eij(hpyw^(2-@@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'crispy_forms',
+    'rest_framework_swagger',
     
 
     #Local Apps
@@ -75,8 +76,9 @@ CORS_ORIGIN_WHITELIST = (
 
 REST_FRAMEWORK = {
 'DEFAULT_PERMISSION_CLASSES': [
-'rest_framework.permissions.AllowAny',
-]
+'rest_framework.permissions.AllowAny', 
+],
+'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 ROOT_URLCONF = 'core.urls'
@@ -135,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

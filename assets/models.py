@@ -15,7 +15,7 @@ class Category(models.Model):
 
 class location(models.Model):
 	name = models.CharField(max_length=200)
-	city = models.CharField(max_length=50, default="Nagpur")
+	city = models.CharField(verbose_name = "Hospital",max_length=50, default="Apollo")
 	state = models.CharField(max_length=50, default="Maharashtra")
 	country = models.CharField(max_length=50, default="India")
 	zipcode = models.CharField(max_length=6, default="440013")
@@ -29,9 +29,6 @@ class location(models.Model):
 
 	def __str__(self):
 		return self.name
-
-
-
 
 class Asset(models.Model):
 	rfid = models.CharField(max_length = 11, unique= True,primary_key=True)
@@ -56,20 +53,24 @@ class Asset(models.Model):
 		("Functional","Functional")
 	]
 	state = models.CharField(max_length=30,choices=STATE_CHOICES,default="Functional")
+	LEVEL_CHOICES = [
+		("Level I","1"),
+		("Level II","2"),
+		("Level III","3"),
+	]
+	level = models.CharField(max_length=30,choices=LEVEL_CHOICES,default="1")
 	created_at = models.DateTimeField(auto_now_add=True)
 	modified_at = models.DateTimeField(auto_now=True)
 
 	class Meta:
 		verbose_name_plural = "assets"
 
-
-
 	def __str__(self):
 		return self.name
 
 class AssetMaintenance(models.Model):
 	maintenance_id = models.CharField(max_length=10, unique=True)
-	asset_id = models.OneToOneField(Asset, on_delete=models.CASCADE)
+	asset_id = models.ForeignKey(Asset,on_delete=models.CASCADE)
 	maintenance_date = models.DateField()
 	maintenance_description = models.TextField()
 	maintenance_cost = models.DecimalField(max_digits=10, decimal_places=2)

@@ -1,16 +1,24 @@
-
 from rest_framework import generics
 from assets.models import Asset, Category, location, AssetMaintenance
-from .serializers import AssetSerializer, CategorySerializer, LocationSerializer, AssetMaintenanceSerializer
+from .serializers import AssetSerializer, CategorySerializer, LocationSerializer, AssetMaintenanceSerializer, AssetSerializerView,AssetSerializerView2
+
 # Create your views here.
 
 class AssetAPIView(generics.ListAPIView):
-	queryset = Asset.objects.all()
+	queryset = Asset.objects.all().order_by('-modified_at')
 	serializer_class = AssetSerializer
+
+class AssetAPIView2(generics.ListAPIView):
+	queryset = Asset.objects.all().order_by('-modified_at')
+	serializer_class = AssetSerializerView
 
 class AssetDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Asset.objects.all()
-	serializer_class = AssetSerializer
+	serializer_class = AssetSerializerView
+
+class AssetDetailAPIView2(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Asset.objects.all()
+	serializer_class = AssetSerializerView2
 
 class CategoryAPIView(generics.ListAPIView):
 	queryset = Category.objects.all()
@@ -35,3 +43,7 @@ class AssetMaintenanceAPIView(generics.ListAPIView):
 class AssetMaintenanceDetailAPIView(generics.RetrieveAPIView):
 	queryset = AssetMaintenance.objects.all()
 	serializer_class = AssetMaintenanceSerializer
+
+
+
+		

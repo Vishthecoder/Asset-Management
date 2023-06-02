@@ -16,10 +16,11 @@ class CategoryAdmin(admin.ModelAdmin):
 	ordering = ('-name',)
 
 class AssetAdmin(admin.ModelAdmin):
-	list_display = ('name','serial_no','rfid','type','state','location')
+	list_display = ('name','serial_no','rfid','type','state','location','modified_at')
 	search_fields = ('name','serial_no','rfid')
 	list_filter = ['type','location']
 	search_help_text = "Model Admin"
+	ordering = ('-modified_at',)
 
 class AssetMaintenanceAdmin(admin.ModelAdmin):
 	list_display = ('maintenance_id','asset_id','maintenance_description','maintenance_date','performed_by','maintenance_cost')
